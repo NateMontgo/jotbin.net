@@ -1,0 +1,102 @@
+/* vars */
+
+:root {
+  /* colors */
+  --main-bg-color: #F2F2F2;
+  --header-bg-color-top: #66B0F5;
+  --header-bg-color-bottom: #60A5E6;
+  --footer-bg-color-top: #2D6499;
+  --footer-bg-color-bottom: #3879B8;
+  --footer-text-color: #4699E2;
+
+  /* sizing */
+  --header-height: 10vh;
+  --header-max-height: 5em;
+  --header-min-height: 3em;
+  --footer-height: 7vh;
+  --footer-max-height: 2.5em;
+  --footer-min-height: 1.2em;
+}
+
+/* default */
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: -webkit-fill-available;
+  margin: 0;
+  background-color: var(--main-bg-color);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* header */
+
+header {
+  display: flex;
+  flex: 0 0 clamp(var(--header-min-height), var(--header-height), var(--header-max-height));
+  align-items: center;
+  background-image: linear-gradient(180deg, var(--header-bg-color-top), var(--header-bg-color-bottom));
+  color: white;
+}
+a.logo {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: clamp(var(--header-min-height), var(--header-height), var(--header-max-height));
+  width: 0;
+  margin-left: 1em;
+}
+a.logo img {
+  object-fit: contain;
+  height: 60%;
+  display: block;
+}
+h1.title-text {
+  position: absolute;
+  font-size: clamp(1.2em, 4vh, 2em);
+  width: 100%;
+  text-align: center;
+}
+div.header-spacer {
+  width: 100%;
+  height: clamp(var(--header-min-height), var(--header-height), var(--header-max-height));
+  visibility: hidden;
+}
+
+/* main */
+
+main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2em;
+}
+
+/* footer */
+
+footer {
+  display: flex;
+  flex: 0 0 clamp(var(--footer-min-height), var(--footer-height), var(--footer-max-height));
+  width: 100%;
+  background-image: linear-gradient(180deg, var(--footer-bg-color-top), var(--footer-bg-color-bottom));
+  padding: 0 1em;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+footer h3 {
+  font-size: min(3vh, 1em);
+  color: var(--footer-text-color);
+}
+
+/* universal */
+
+.hidden {
+  display: none !important;
+}

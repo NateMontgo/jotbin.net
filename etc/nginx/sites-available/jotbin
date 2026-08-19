@@ -1,0 +1,65 @@
+log_format  proxy_log  '[$time_local] $remote_addr - $remote_user "$host$request_uri" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"'
+                      ' Proxy: "$proxy_host" "$upstream_addr"';
+
+upstream app_alphabet_race {
+    server unix:/jotbin/api/alphabet-race/run/gunicorn.sock fail_timeout=0;
+}
+
+server {
+    allow 164.58.74.115;
+    allow 75.44.232.95;
+    allow 107.115.243.63;
+    allow 192.168.1.252;
+
+    deny all;
+
+    listen 80;
+    server_name jotbin.net www.jotbin.net    
+
+    keepalive_timeout 5;
+    client_max_body_size 4G;
+
+    access_log /jotbin/logs/nginx-access.log;
+    error_log  /jotbin/logs/nginx-error.log;
+    
+    root /jotbin/frontend; 
+
+    error_page 404                /404.html;
+
+    location / {
+        if ($request_uri ~ ^/(.*)(\.html|index)(\?|$)) {
+            return 301 /$1;
+        }
+
+        try_files $uri $uri.html $uri/index.html $uri/ =404;
+    }
+
+    location /games {
+        if ($request_uri ~ ^/(.*)(\.html|index)(\?|$)) {
+            return 301 /$1;
+        }
+
+        rewrite ^([^.]*[^/])$ $1/ permanent;
+    }
+ 
+    location /api/alphabet-race {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        access_log /jotbin/logs/nginx-access.log proxy_log;
+
+        if (!-f $request_filename) {
+	    rewrite ^/api/alphabet-race(/.*)$ $1 break;
+
+            proxy_pass http://app_alphabet_race;
+            break;
+        }
+    }
+}
+
+
+

@@ -1,0 +1,157 @@
+/* vars */
+
+:root {
+  --primary-color: none;
+}
+@font-face {
+  font-family: "Harlow";
+  src: url(../fonts/Harlow\ Solid\ Italic\ Italic.ttf);
+}
+
+/* body */
+
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif ;
+  user-select: none;
+}
+div#container {
+  position: relative;
+  width: 800px;
+  height: 600px;
+}
+
+/* menu */
+
+div#title-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 2;
+}
+div#title-container canvas {
+  background-color: black;
+}
+div#title-container div#title-text-container {
+  position: absolute;
+  display: flex;
+  top: 0;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  
+  color: var(--primary-color);
+}
+div#title-container div#title-text-container h1 {
+  margin: 0.5em 0 1em 0;
+  font-family: Harlow, monospace;
+  font-size: 5.5em;
+  font-weight: 400;
+}
+div#title-container div#title-text-container p {
+  margin: 0.2em 0;
+  font-size: 2em;
+  transition: color 0.3s;
+}
+div#title-container div#title-text-container p:hover {
+  color: orange;
+}
+
+/* game */
+
+div#game-container {
+  position: absolute;
+  z-index: 0;
+}
+
+div#game-container canvas {
+  background-color: black;
+}
+div#score-container {
+  display: flex;
+  position: absolute;
+  width: 800px;
+  padding-top: 1em;
+
+  color: var(--primary-color);
+
+  justify-content: space-evenly;
+}
+
+/* game over ui */
+
+div#game-over-container {
+  position: absolute;
+  z-index: 1;
+  width: 800px;
+  display: flex;
+  justify-content: space-around;
+  color: var(--primary-color);
+  top: 0;
+  transform: translateY(-100%);
+  transition: all 0.8s ease-out;
+}
+div#game-over-container div#outer-game-over {
+  background-color: var(--primary-color);
+  width: 40%;
+  border-radius: 10px;
+  padding: 0.2em;
+}
+div#game-over-container div#outer-game-over div#inner-game-over {
+  display: flex;
+  background-color: #3D3C3B;
+  border: 5px solid black;
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+div#game-over-container div#outer-game-over div#inner-game-over p {
+  font-size: 2em;
+}
+div#game-over-container div#outer-game-over div#inner-game-over i {
+  background-color: black;
+  border-radius: 5px;
+  padding: 0.75em;
+  font-size: 1.5em;
+  margin: 0.5em 0.25em 0.75em 0.25em;
+  transition: color 0.3s;
+}
+div#game-over-container div#outer-game-over div#inner-game-over i:hover {
+  color: orange;
+}
+
+/* all */
+
+.no-transition {
+  transition: none !important;
+}
+
+/* Launch Screen */
+
+div#launch-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: black;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: opacity 1s;
+}
+img#launch-screen-logo {
+  display: inline-block;
+  width: 25%;
+}
+
+.hidden {
+  opacity: 0;
+}

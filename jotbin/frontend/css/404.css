@@ -1,0 +1,16 @@
+/* main */
+
+main h1 {
+    font-size: 25vh;
+    margin: 0;
+    flex: 1;
+    align-content: center;
+}
+main p {
+    font-size: 4vh;
+    margin: 0;
+    flex: 2;
+    align-content: center;
+    text-align: center;
+    margin: 0 3em
+}

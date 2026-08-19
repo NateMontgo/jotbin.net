@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body onload="init()">
+    <canvas width="1600" height="1200">Canvas failed to load.  Please use a modern web browser</canvas>
+
+    <!-- images -->
+    <img id="debug-square" src="images/debug-square.png" width="100" height="100" hidden="true">
+    <img id="dungeon-2" src="images/dungeon-2.png" width="3200" height="2400" hidden="true">
+    <img id="ice-slime-sprites" src="images/ice-slime-sprites.png" width="2700" height="1440" hidden="true">
+    <img id="fire-slime-sprites" src="images/fire-slime-sprites.png" width="2700" height="1440" hidden="true">
+    <img id="player-sprites" src="images/player-sprites.png" width="1000" height="3032" hidden="true">
+    <img id="water-slime-sprites" src="images/water-slime-sprites.png" width="2700" height="1440" hidden="true">
+
+    <img id="water-king-slime" src="images/WaterKingSlimeSprite.png" hidden="true">
+    <img id="ice-king-slime" src="images/IceKingSlimeSprite.png" hidden="true">
+    <img id="fire-king-slime" src="images/FireKingSlimeSprite.png" hidden="true">
+
+    <img id="fire-attack-up" src="images/fire-attack-up.png" hidden="true">
+    <img id="fire-attack-right" src="images/fire-attack-right.png" hidden="true">
+    <img id="fire-attack-down" src="images/fire-attack-down.png" hidden="true">
+    <img id="fire-attack-left" src="images/fire-attack-left.png" hidden="true">
+
+    <img id="ice-projectile-up" src="images/ice-projectile-up.png" hidden="true">
+    <img id="ice-projectile-right" src="images/ice-projectile-right.png" hidden="true">
+    <img id="ice-projectile-down" src="images/ice-projectile-down.png" hidden="true">
+    <img id="ice-projectile-left" src="images/ice-projectile-left.png" hidden="true">
+
+    <img id="water-attacks-up" src="images/water-attacks-up.png" hidden="true">
+    <img id="water-attacks-right" src="images/water-attacks-right.png" hidden="true">
+    <img id="water-attacks-down" src="images/water-attacks-down.png" hidden="true">
+    <img id="water-attacks-left" src="images/water-attacks-left.png" hidden="true">
+
+    <!-- Level 2 (Overworld/Hedge Maze) -->
+    <img id="rolledUp-scroll" src="images/Scroll.png" hidden="true">
+    <img id="open-scroll" src="images/open scroll2.png" hidden="true">
+    <img id="key" src="images/Key.png" hidden="true">
+    <img id="open-chest" src="images/ChestOpen_640.png" hidden="true">
+    <img id="closed-chest" src="images/ChestClosed_640.png" hidden="true">
+
+    <!-- Player Health -->
+    <img id="full-heart" src="images/FullHeart.png" hidden="true">
+    <img id="four-heart" src="images/4Heart.png" hidden="true">
+    <img id="four-half-heart" src="images/4.5Heart.png" hidden="true">
+    <img id="three-heart" src="images/3Heart.png" hidden="true">
+    <img id="three-half-heart" src="images/3.5Heart.png" hidden="true">
+    <img id="two-heart" src="images/2Heart.png" hidden="true">
+    <img id="two-half-heart" src="images/2.5Heart.png" hidden="true">
+    <img id="one-heart" src="images/1Heart.png" hidden="true">
+    <img id="one-half-heart" src="images/1.5Heart.png" hidden="true">
+    <img id="zero-heart" src="images/0Heart.png" hidden="true">
+    <img id="half-heart" src="images/0.5Heart.png" hidden="true">
+
+    <!-- Maps -->
+    <img id="castle-with-statue" src="images/CastleWithStatueFinished.png" width="1600" height="1200" hidden="true">
+    <img id="castle-with-fountain" src="images/CastleWithFountainBackgroundFinished.png" width="1600" height="1200" hidden="true">
+    <img id="castle-basic" src="images/CastlePlainMapFinished.png" width="1600" height="1200" hidden="true">    
+    <img id="castle-boss" src="images/CastleBossMapFinished.png" width="1600" height="1200" hidden="true"> 
+    <img id="overworld" src="images/MazeBackgroundFinished.png" width="1600" height="1200" hidden="true">
+    <img id="dungeon-2-finished" src="images/Dungeon2BackgroundFinished.png" width="1600" height="1200" hidden="true">
+    <img id="dungeon-1" src="images/Dungeon1BackgroundFinished.png" width="1600" height="1200" hidden="true">
+    <img id="dungeon-1-unlock" src="images/DungeonBackground2Unlock.png" hidden="true">
+
+    <img id="dungeon-1-cover" src="images/dungeon-1-cover.png" hidden="true">
+
+    <!-- Dialogue -->
+    <img id="prisoner-1-dialogue" src="images/Prisioner1Dialogue.png" hidden="true">
+    <img id="prisoner-2-dialogue" src="images/Prisioner2Dialogue.png" hidden="true">
+    <img id="MC-secret-code-dialogue-7" src="images/MCSecretCodeDialogue7.png" hidden="true">
+    <img id="MC-my-head-dialogue-1" src="images/MCMyHeadDialogue1.png" hidden="true">
+    <img id="MC-I-think-dialogue-6" src="images/MCIThinkDialogue6.png" hidden="true">
+    <img id="MC-I-need-to-dialogue-5" src="images/MCINeedToDialogue5.png" hidden="true">
+    <img id="MC-how-did-dialogue-3" src="images/MCHowDidDialogue3.png" hidden="true">
+    <img id="MC-a-key-dialogue-4" src="images/MCAKeyDialogue4.png" hidden="true">
+    <img id="cat-mew-dialogue-2" src="images/CatMewDialogue2.png" hidden="true">
+    <img id="guard-2-leave-dialogue" src="images/Guard2LeaveDialogue.png" hidden="true">
+    <img id="guard-2-player-caught-dialogue" src="images/Guard1(ifCaught)Dialogue.png" hidden="true">
+    <img id="guard-1-leave-dialogue" src="images/Guard1LeaveDialogue.png" hidden="true">
+    <img id="guard-1-player-caught-dialogue" src="images/Guard1(ifCaught)Dialogue.png" hidden="true">
+
+    <!-- screens -->
+    <img id="move-instruct" src="images/MovementInstructions.png" hidden="true">
+    <img id="magic-instruct" src="images/MagicInstruction.png" hidden="true">
+    <img id="keys-instruct" src="images/KeysInstruction.png" hidden="true">
+    <img id="game-over" src="images/game over.png" hidden="false">
+    <img id="try-again" src="images/try again button.png" hidden="true">
+    <img id="quit-button" src="images/quit button 2.png" hidden="true">
+
+    <img id="finald" src="images/DungeonBackground1End.png" hidden="true">
+    <img id="black" src="images/BlackScreen.png" hidden="true">
+    <img id="credits" src="images/Credits.png" hidden="true">
+    <img id="white" src="images/WhiteScreen.png" hidden="true">
+
+    <!-- Cat -->
+    <img id="cat-paw-for-maze" src="images/CatPawFrames_640_640.png" hidden="true">
+    <img id="cat-sprite" src="images/CatSprite_640px_4fps.png" hidden="true">
+
+    <!-- Guard -->
+    <img id="guard-sprites" src="images/Guard Sprite Sheet.png" hidden="true">
+
+    <audio id="title-music" src="./title-revised3.wav"hidden="true">
+    <audio id="dungon-music" src="./dungeon-revised2.wav"hidden="true">
+    <audio id="boss-music" src="./Boss.wav"hidden="true">
+    <audio id="overworld-music" src="./overworld-revised1.wav"hidden="true">
+    <audio id="castle-music" src="./castle-revised3.wav"hidden="true">
+
+    <!-- scripts -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script src="js/cat.js"></script>
+    <script src="js/collision.js"></script>
+    <script src="js/dialog.js"></script>
+    <script src="js/gaurd.js"></script>
+    <script src="js/levels.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/projectile.js"></script>
+    <script src="js/slime.js"></script>
+    <script src="js/sprite.js"></script>
+    <script src="js/utility.js"></script>
+
+</body>
+</html>

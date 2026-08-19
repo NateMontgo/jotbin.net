@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>15 Puzzle</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://kit.fontawesome.com/68ed3a7e4b.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <main>
+      <!--* Launch Screen -->
+      <div id="launch-screen">
+        <img id="launch-screen-logo" src="./img/logo.png" draggable="false">
+        <h3>jotbin.net</h3>
+        <h1 id="launch-screen-text">Click to Launch</h1>
+      </div>
+      <!--*-->
+
+      <div id="transition-effect"></div>
+      <div id="title-container">
+        <div id="main-title">
+          <h1>15 Puzzle</h1>
+          <p id="play-button">Play</p>
+          <footer>
+            <div id="settings-container">
+              <h3>Sound Effects</h3>
+              <input type="range" min="0" max="100" value="100" id="sfx-volume">
+              <h3>Music</h3>
+              <input type="range" min="0" max="100" value="100" id="music-volume">
+            </div>
+            <p id="credits">Game by Nate Montgomery <br> Puzzle invented by Noyes Chapman</p>
+          </footer>
+        </div>
+        <div id="level-select-container">
+          <div id="level-select-header">
+            <i class="fa-solid fa-arrow-left" id="menu-back-button"></i>
+            <h1>Select a Level</h1>
+          </div>
+          <div class="row">
+            <p class="level-select-button">1</p>
+            <p class="level-select-button">2</p>
+            <p class="level-select-button">3</p>
+            <p class="level-select-button">4</p>
+            <p class="level-select-button">5</p>
+          </div>
+          <div class="row">
+            <p class="level-select-button">6</p>
+            <p class="level-select-button">7</p>
+            <p class="level-select-button">8</p>
+            <p class="level-select-button">9</p>
+            <p class="level-select-button">10</p>
+          </div>
+          <div class="row">
+            <p class="level-select-button">11</p>
+            <p class="level-select-button">12</p>
+            <p class="level-select-button">13</p>
+            <p class="level-select-button">14</p>
+            <p class="level-select-button">15</p>
+          </div>
+          <div class="row">
+            <p class="level-select-button wide-button">Random</p>
+            <p class="level-select-button wide-button">Free Play</p>
+          </div>
+        </div>
+      </div>
+      <div id="victory-container">
+        <div class="victory-content">
+          <img src="./img/one-star.png" width="100" height="100" draggable="false">
+          <h1>Puzzle Complete!</h1>
+          <div id="victory-buttons">
+            <i id="victory-exit-button" class="fa-solid fa-house-chimney"></i>
+            <i id="victory-restart-button" class="fa-solid fa-rotate"></i>
+            <i id="victory-next-button" class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+      <div id="complete-victory-container">
+        <div class="victory-content">
+          <img src="./img/three-star.png" width="150" height="100" draggable="false">
+          <h1>Congratulations!</h1>
+          <p>You’ve completed all 15 levels!  Now feel free to try some randomly generated levels, or to mess around in Free Play</p>
+          <h3 id="complete-victory-button">Continue</h3>
+        </div>
+      </div>
+      <div id="game-container">
+        <div id="ui">
+          <i id ="ingame-exit-button" class="fa-solid fa-house-chimney"></i>
+          <i id="ingame-restart-button" class="fa-solid fa-rotate"></i>
+          <i id="ingame-new-level-button" class="fa-solid fa-plus"></i>
+          <p id="level-label">Level 1</p>
+        </div>
+        <img src="./img/tut-solved.png" id="tut-solved" width="160" height="160" draggable="false">
+        <img src="./img/tut-arrows.png" id="tut-arrows" width="150" height="100" draggable="false">
+      </div>
+      <canvas id="game" width="800" height="600"></canvas>
+    </main>
+
+    <script type='application/javascript' src='./js/fastclick.js'></script>
+    <script src="./js/scripts.js"></script>
+  </body>
+</html>

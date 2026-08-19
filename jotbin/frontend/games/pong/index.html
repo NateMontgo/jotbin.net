@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pong</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://kit.fontawesome.com/68ed3a7e4b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="container">
+    <!--* Launch Screen -->
+    <div id="launch-screen">
+      <img id="launch-screen-logo" src="./img/logo.png" draggable="false">
+      <h3>jotbin.net</h3>
+      <h1 id="launch-screen-text">Click to Launch</h1>
+    </div>
+    <!--*-->
+    
+    <div id="title-container">
+      <div id="title-text-container">
+        <h1 id="title-text">Pong</h1>
+        <p id="classic-text">Classic</p>
+        <p id="endless-text">Endless</p>
+      </div>
+    </div>
+
+    <div id="game-over-container">
+      <div id="outer-game-over">
+        <div id="inner-game-over">
+          <p id="winner-text">Placeholder</p>
+            <div id="options-container">
+              <i id="restart-button" class="fas fa-redo"></i>
+              <i id="exit-button" class="fas fa-sign-out-alt"></i>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="game-container">
+      <div id="score-container">
+        <h1 id="cpu-score-counter">0</h1>
+        <h1 id="player-score-counter">0</h1>
+      </div>
+      <canvas id="game" width="800" height="600"></canvas>
+    </div>
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
