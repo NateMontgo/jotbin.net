@@ -7,7 +7,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://jotbin.net"],
+    allow_origins=["https://jotbin-net.vercel.app"],
     allow_methods=["GET","POST"],
     allow_headers=["content-type"]
 )
