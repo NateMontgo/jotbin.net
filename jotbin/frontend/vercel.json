@@ -1,3 +1,10 @@
 {
-    "cleanUrls" : true
+    "cleanUrls" : true,
+    "redirects": [
+        {
+            "source": "/games/:path((?!.*/$).*)",
+            "destination": "/games/:path/",
+            "permanent": true
+        }
+    ]
 }
