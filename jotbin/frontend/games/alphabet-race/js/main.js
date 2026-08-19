@@ -13,7 +13,12 @@ class Score {
 }
 
 // consts
-const api = location.protocol + "//jotbin.net/api/alphabet-race";
+
+/*
+ ! If deploying on an nginx configured server, use the commented out api constant
+*/
+// const api = location.protocol + "//jotbin.net/api/alphabet-race";
+const api = "https://jotbin-net.onrender.com";
 
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
