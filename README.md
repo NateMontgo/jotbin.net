@@ -6,11 +6,11 @@ This website was built for hosting on an Ubuntu VPS running NGINX.
 
 ## Overview
 
-Jotbin was originally conceived to be a platform in which I would host web games that would be sold to various websites. Instead, Jotbin turned into a interactive timeline of my programming growth throughout high school.
+Jotbin was originally conceived to be a platform in which I would host web games that would be sold to various websites. Instead, Jotbin turned into an interactive timeline of my programming growth throughout high school.
 
-I built this website at 14 years old. As my skills grew, so did the project. What started as a frontend-only website with two small games grew into a full stack web application with an NGINX and FastAPI powered backend. 
+I built this website at 14 years old. As my skills grew, so did the project. What started as a frontend-only website with two small games grew into a full-stack web application with an NGINX and FastAPI powered backend. 
 
-No generative AI was used to write any portion of the project's code. Some AI was used to fact check setup documentation.
+No generative AI was used to write any portion of the project's code. Some AI was used to proofread documentation.
 
 ## Tech Stack
 
@@ -22,12 +22,12 @@ No generative AI was used to write any portion of the project's code. Some AI wa
 ## Highlights
 
 - Built, deployed, and maintained a Linux VPS.
-- Developed an API with FastAPI.
+- Developed and deployed a FastAPI leaderboard.
 - Created multiple browser games with responsive user interfaces without the use of any AI.
 
 ## Repository Structure
 
-`etc` and `jotbin` represent folders that would exist at the root directory of a linux server.
+`etc` and `jotbin` represent folders that would exist at the root directory of a Linux server.
 
 `jotbin\frontend` contains all frontend elements of the website.
 
@@ -82,7 +82,7 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
     // const api = location.protocol + "//" + domain + "/api/alphabet-race";
     ```
 
-7. In lines 10-15 of `jotbin\api\alphabet-race\main.py`, you will find the following cors middleware. Replace the domain in line 12 with your domain or IP address. This will properly configure the Alphabet Race API to allow interfacing from your frontend.
+7. In lines 10-15 of `jotbin\api\alphabet-race\main.py`, you will find the following CORS middleware. Replace the domain in line 12 with your domain or IP address. This will properly configure the Alphabet Race API to allow interfacing from your frontend.
 
     ```python
     app.add_middleware(
@@ -92,7 +92,7 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
         allow_headers=["content-type"]
     )
     ```
-8. In line 12 of `etc/nginx/sites-available/jotbin`, you will see the followinng code. Replace both instances of "jotbin.net" with your registered domain.
+8. In line 12 of `etc/nginx/sites-available/jotbin`, you will see the following code. Replace both instances of "jotbin.net" with your registered domain.
 
     ```nginx
     server_name jotbin.net www.jotbin.net;
