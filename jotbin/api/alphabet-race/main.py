@@ -5,6 +5,8 @@ import json
 
 app = FastAPI()
 
+#! Replace the domain in line 12 with your domain or IP address.
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://jotbin-net.vercel.app"],

@@ -15,9 +15,11 @@ class Score {
 // consts
 
 /*
- ! If deploying on an nginx configured server, use the commented out api constant
+ ! If deploying on an nginx configured server, enter your configured domain or 
+ ! IP address in line 21, uncomment lines 21-22, and delete line 23.
 */
-// const api = location.protocol + "//jotbin.net/api/alphabet-race";
+// const domain = "";
+// const api = location.protocol + "//" + domain + "/api/alphabet-race";
 const api = "https://jotbin-net.onrender.com";
 
 const canvas = document.querySelector('canvas');
