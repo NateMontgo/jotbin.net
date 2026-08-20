@@ -1,6 +1,6 @@
 # jotbin.net
 
-This website was built for hosting on an Ubuntu VPS running NGINX.
+This website was built for hosting on an Ubuntu VPS running NGINX. You can view the archived site below.
 
 ### [Live Demo](https://jotbin-net.vercel.app/)
 
