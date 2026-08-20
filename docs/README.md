@@ -1,0 +1,3 @@
+# Docs
+
+Each one of these projects represents a critical learning moment in my programming career. With each project, I had a specific goal in mind of how I wanted to expand my knowledge. Projects on the website are listed newest at the top and oldest at the bottom. These documents do not come close to cover all of the knowledge I've pursued over the years, but they do a fine job at outlining the main course I have taken on my journey becoming the programmer I am today.
