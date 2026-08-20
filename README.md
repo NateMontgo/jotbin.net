@@ -26,17 +26,21 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
 
 1. Install NGINX 
 
-    ```sudo apt install nginx```
+    ```bash
+    sudo apt install nginx
+    ```
 
 2. Install supervisor for automated startup and log handling 
 
-    ```sudo apt install supervisor```
+    ```bash
+    sudo apt install supervisor
+    ```
 
 3. Clone or copy the `etc` and `jotbin` folders to the root directory of your Ubuntu server
 
 4. Create a python virtual environment and install dependencies.
 
-    ````
+    ```bash
     sudo apt update
     sudo apt install -y nginx supervisor python3-venv
 
@@ -44,31 +48,28 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
     python3 -m venv .venv
     source .venv/bin/activate
     pip install -r requirements.txt
-
     ```
 
 5. Create runtime and log directories.
 
-    ```
+    ```bash
     sudo mkdir -p /jotbin/api/alphabet-race/run
     sudo mkdir -p /jotbin/logs
     sudo touch /jotbin/logs/leaderboard-placeholder
     sudo chown -R www-data:www-data /jotbin/api/alphabet-race /jotbin/logs
     sudo chmod +x /jotbin/api/alphabet-race/gunicorn_start
-
     ```
 
 6. In lines 21-22 of `jotbin\frontend\games\alphabet-race\js\main.js`, you will see this commented code. Uncomment the code, add your domain to line 21, and delete line 23. This will properly configure Alphabet Race to use the api you are hosting on your server.
 
-    ```
+    ```javascript
     // const domain = "";
     // const api = location.protocol + "//" + domain + "/api/alphabet-race";
-
     ```
 
 7. In lines 10-15 of `jotbin\api\alphabet-race\main.py`, you will find the following cors middleware. Replace the domain in line 12 with your domain or IP address. This will properly configure the Alphabet Race API to allow interfacing from your frontend.
 
-    ```
+    ```python
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["https://jotbin-net.vercel.app"],
@@ -79,7 +80,7 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
 
 8. Create a symbolic link to enable the nginx site.
 
-    ```
+    ```bash
     sudo ln -s /etc/nginx/sites-available/jotbin \
     /etc/nginx/sites-enabled/jotbin
     sudo rm -f /etc/nginx/sites-enabled/default
@@ -88,7 +89,7 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
 
 9. Test and start both services
 
-    ```
+    ```bash
     sudo nginx -t
     sudo systemctl enable --now supervisor
     sudo supervisorctl reread
