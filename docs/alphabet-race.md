@@ -6,7 +6,7 @@ This semester-long project acts as the conclusion to my website. It houses the m
 
 - Understand how APIs work and how to create one
 - Learn how web applications interface with APIs
-- Learn how to fully configure and deploy an NGINX backed
+- Learn how to fully configure and deploy an NGINX backend
 - Migrate the entirety of jotbin to a VPS that can host python API endpoints
 - Fully maintain a live server
 
