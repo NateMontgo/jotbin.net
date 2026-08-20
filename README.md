@@ -1,10 +1,10 @@
 # jotbin.net
 
-This website was built for hosting on a Ubuntu VPS running NGINX. The website is currently archived [here](https://jotbin-net.vercel.app/).
+This website was built for hosting on an Ubuntu VPS running NGINX. The website is currently archived [here](https://jotbin-net.vercel.app/).
 
 ## Overview
 
-Jotbin was originally conceived to be a platform which I would host web games that would be sold to various websites. Instead, Jotbin turned into a interactive timeline of my programming growth throughout high school.
+Jotbin was originally conceived to be a platform in which I would host web games that would be sold to various websites. Instead, Jotbin turned into a interactive timeline of my programming growth throughout high school.
 
 I built this website at 14 years old. As my skills grew, so did the project. What started as a frontend-only website with two small games grew into a full stack web application with an Nginx and FastAPI powered backend. 
 
