@@ -92,8 +92,19 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
         allow_headers=["content-type"]
     )
     ```
+8. In line 12 of `etc/nginx/sites-available/jotbin`, you will see the followinng code. Replace both instances of "jotbin.net" with your registered domain.
 
-8. Create a symbolic link to enable the NGINX site.
+    ```nginx
+    server_name jotbin.net www.jotbin.net;
+    ```
+
+    If you do not own a registered domain, simply replace the line with:
+
+    ```nginx
+    server_name _;
+    ```
+
+9. Create a symbolic link to enable the NGINX site.
 
     ```bash
     sudo ln -s /etc/nginx/sites-available/jotbin \
@@ -101,7 +112,7 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
     sudo rm -f /etc/nginx/sites-enabled/default
     ```
 
-9. (Optional) Install and run Certbot to register an SSL certificate. Replace "your_domain.com" with your actual registered domain.
+10. (Optional) Install and run Certbot to register an SSL certificate. Replace "your_domain.com" with your actual registered domain.
 
     ```bash
     sudo apt update
@@ -111,7 +122,7 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
     ```
 
 
-10. Test and start both services.
+11. Test and start both services.
 
     ```bash
     sudo nginx -t
@@ -122,4 +133,4 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
     sudo systemctl enable --now nginx
     ```
 
-11. View logs at `jotbin\logs`.
+12. View logs at `jotbin\logs`.
