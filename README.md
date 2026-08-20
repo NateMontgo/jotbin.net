@@ -1,14 +1,29 @@
 # jotbin.net
 
-This website was built for hosting on an Ubuntu VPS running NGINX. The website is currently archived [here](https://jotbin-net.vercel.app/).
+This website was built for hosting on an Ubuntu VPS running NGINX.
+
+### [Live Demo](https://jotbin-net.vercel.app/)
 
 ## Overview
 
 Jotbin was originally conceived to be a platform in which I would host web games that would be sold to various websites. Instead, Jotbin turned into a interactive timeline of my programming growth throughout high school.
 
-I built this website at 14 years old. As my skills grew, so did the project. What started as a frontend-only website with two small games grew into a full stack web application with an Nginx and FastAPI powered backend. 
+I built this website at 14 years old. As my skills grew, so did the project. What started as a frontend-only website with two small games grew into a full stack web application with an NGINX and FastAPI powered backend. 
 
 No generative AI was used to write any portion of the project's code. Some AI was used to fact check setup documentation.
+
+## Tech Stack
+
+- **Frontend**: HTML, CSS, JavaScript, HTML5 Canvas
+- **Backend**: Python, FastAPI
+- **Current Deployment**: Vercel, Render
+- **Original Deployment**: Ubuntu, NGINX, Gunicorn, Supervisor, Certbot
+
+## Highlights
+
+- Built, deployed, and maintained a Linux VPS.
+- Developed an API with FastAPI.
+- Created multiple browser games with responsive user interfaces without the use of any AI.
 
 ## Repository Structure
 
@@ -16,27 +31,27 @@ No generative AI was used to write any portion of the project's code. Some AI wa
 
 `jotbin\frontend` contains all frontend elements of the website.
 
-`jotbin\api` contains all apis used in the project. Currently, only the Alphabet Race leaderboard api exists.
+`jotbin\api` contains all APIs used in the project. Currently, only the Alphabet Race leaderboard API exists.
 
-`docs` contains all supporting documentation. There is one document per website project and a readme. Each project document contains the learning objective, the original developer commentary, and a modern day reflection.
+`docs` contains all supporting documentation. There is one document per website project and a readme. Each project document contains the learning objectives, the original developer commentary, and a modern day reflection.
 
 ## Setup
 
 These setup instructions assume you have a live Ubuntu server ready for deployment.
 
-1. Install NGINX 
+1. Install NGINX.
 
     ```bash
     sudo apt install nginx
     ```
 
-2. Install supervisor for automated startup and log handling 
+2. Install Supervisor for automated startup and log handling. 
 
     ```bash
     sudo apt install supervisor
     ```
 
-3. Clone or copy the `etc` and `jotbin` folders to the root directory of your Ubuntu server
+3. Clone or copy the `etc` and `jotbin` folders to the root directory of your Ubuntu server.
 
 4. Create a python virtual environment and install dependencies.
 
@@ -60,7 +75,7 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
     sudo chmod +x /jotbin/api/alphabet-race/gunicorn_start
     ```
 
-6. In lines 21-22 of `jotbin\frontend\games\alphabet-race\js\main.js`, you will see this commented code. Uncomment the code, add your domain to line 21, and delete line 23. This will properly configure Alphabet Race to use the api you are hosting on your server.
+6. In lines 21-22 of `jotbin\frontend\games\alphabet-race\js\main.js`, you will see the following commented code. Uncomment the code, add your domain to line 21, and delete line 23. This will properly configure Alphabet Race to use the API you are hosting on your server.
 
     ```javascript
     // const domain = "";
@@ -78,7 +93,7 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
     )
     ```
 
-8. Create a symbolic link to enable the nginx site.
+8. Create a symbolic link to enable the NGINX site.
 
     ```bash
     sudo ln -s /etc/nginx/sites-available/jotbin \
@@ -86,8 +101,17 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
     sudo rm -f /etc/nginx/sites-enabled/default
     ```
 
+9. (Optional) Install and run Certbot to register an SSL certificate. Replace "your_domain.com" with your actual registered domain.
 
-9. Test and start both services
+    ```bash
+    sudo apt update
+    sudo apt install certbot python3-certbot-nginx
+
+    sudo certbot --nginx -d your_domain.com -d www.your_domain.com
+    ```
+
+
+10. Test and start both services.
 
     ```bash
     sudo nginx -t
@@ -98,4 +122,4 @@ These setup instructions assume you have a live Ubuntu server ready for deployme
     sudo systemctl enable --now nginx
     ```
 
-10. View logs at `jotbin\logs`
+11. View logs at `jotbin\logs`.
